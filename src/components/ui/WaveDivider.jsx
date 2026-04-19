@@ -58,9 +58,9 @@ export default function WaveDivider({
             x2="100%" 
             y2="0%"
           >
-            <stop offset="0%" stopColor={topColor} />
-            <stop offset="50%" stopColor={middleColor} />
-            <stop offset="100%" stopColor={bottomColor} />
+            <stop offset="0%" stopColor={topColor} stopOpacity="1" />
+            <stop offset="50%" stopColor={topColor} stopOpacity="1" />
+            <stop offset="100%" stopColor={topColor} stopOpacity="1" />
           </linearGradient>
         </defs>
         <path 

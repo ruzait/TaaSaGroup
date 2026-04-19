@@ -129,9 +129,9 @@ function Hero() {
       </div>
       <WaveGradient 
         direction="up"
-        fromColor="#F4F4F4"
+        fromColor="#F5F5DC"
         toColor={COLORS.bg}
-        midColor="#F4F4F4"
+        midColor="#F5F5DC"
         height="80px"
       />
     </section>

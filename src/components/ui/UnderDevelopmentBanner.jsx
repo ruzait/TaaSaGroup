@@ -84,47 +84,7 @@ export default function UnderDevelopmentBanner({ company }) {
             </motion.div>
           ))}
         </motion.div>
-
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-3 h-3 rounded-full"
-            style={{ backgroundColor: accent }}
-            initial={{ 
-              x: Math.random() * 400 - 200,
-              y: Math.random() * 200 + 100,
-              opacity: 0 
-            }}
-            animate={{ 
-              y: [null, -100],
-              opacity: [0, 0.8, 0],
-            }}
-            transition={{ 
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: 'linear'
-            }}
-            style={{ 
-              left: `${30 + Math.random() * 40}%`,
-              top: '50%'
-            }}
-          />
-        ))}
       </div>
-
-      <motion.div
-        className="absolute w-64 h-64 rounded-full opacity-20"
-        style={{ backgroundColor: color, top: '-20%', left: '-10%' }}
-        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-        transition={{ duration: 4, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute w-48 h-48 rounded-full opacity-15"
-        style={{ backgroundColor: accent, bottom: '10%', right: '-5%' }}
-        animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.25, 0.1] }}
-        transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-      />
     </section>
   )
 }
