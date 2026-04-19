@@ -1,0 +1,816 @@
+================================================================================
+                    TAA SA RICE MILL - COMPREHENSIVE PROJECT DOCUMENTATION
+================================================================================
+
+PROJECT TITLE: TaaSa Rice Processing Company - Premium Rice Website
+PROJECT LOCATION: C:\Users\Express\Desktop\opencode\Taasa rice mill
+WEBSITE URL: https://taasariceprocessingcompany.netlify.app/
+DATE: April 2026
+VERSION: 2.0.0
+
+================================================================================
+                              TABLE OF CONTENTS
+================================================================================
+
+1. Executive Summary
+2. Business Overview
+3. Technical Architecture
+4. SEO Implementation Guide
+5. Component Documentation
+6. Content & Product Management
+7. Design System & Brand Guidelines
+8. Responsive Design Strategy
+9. Performance Optimization
+10. Security Considerations
+11. Deployment Guide
+12. Analytics & Tracking Setup
+13. Marketing Integration
+14. Troubleshooting & FAQ
+15. Future Enhancements
+16. Appendix
+
+================================================================================
+                            1. EXECUTIVE SUMMARY
+================================================================================
+
+TaaSa Rice Processing Company is a modern, fully responsive single-page 
+application (SPA) website for a premium rice processing company and export company based 
+in Navithanveli, Ampara, Sri Lanka. The website serves as the digital 
+showcase for the company's rice products, certifications, and services.
+
+KEY METRICS:
+- Business Type: Rice Producer & Exporter
+- Industry Experience: 25+ Years
+- Export Markets: Middle East, South Africa, Worldwide
+- Certifications: ISO 9001, ISO 22000, GMP
+- Operations: 24/7 Available
+- Primary Products: White Rice, Non-Basmati Rice
+
+================================================================================
+                            2. BUSINESS OVERVIEW
+================================================================================
+
+COMPANY PROFILE:
+- Company Name: TaaSa Rice Processing Company Private Limited
+- Short Name: TaaSa Rice Processing Company
+- Founded: Over 25 years ago
+- Location: Navithanveli, Ampara, Sri Lanka
+- Business Type: Rice Processing, Packaging & Export
+
+PRODUCT PORTFOLIO:
+1. White Rice
+   - Tagline: "Healthy Life for Every Family"
+   - Features: ISO 9001 Certified, Consistent size, Rich in nutrients
+   - Target: Domestic & International markets
+
+2. Non-Basmati Rice
+   - Tagline: "Repacking Available & Exporting"
+   - Features: ISO 22000 Certified, Bulk packaging, Global logistics
+   - Target: Export markets
+
+CERTIFICATIONS:
+- ISO 9001: Quality Management System
+- ISO 22000: Food Safety Management System
+- GMP: Good Manufacturing Practice
+- IDB Approved: Industrial Development Board Sri Lanka
+
+EXPORT MARKETS:
+- Middle East
+- South Africa
+- Worldwide
+
+================================================================================
+                        3. TECHNICAL ARCHITECTURE
+================================================================================
+
+FRONTEND STACK:
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Layer              │ Technology                    │ Version           │
+├─────────────────────────────────────────────────────────────────────────┤
+│ UI Framework       │ React                         │ 18.x              │
+│ Build Tool         │ Vite                          │ 5.x               │
+│ Styling            │ Tailwind CSS                  │ 3.x               │
+│ Animations         │ Framer Motion                 │ 11.x              │
+│ Icons              │ Lucide React                  │ Latest            │
+│ Fonts              │ Google Fonts                  │ N/A               │
+└─────────────────────────────────────────────────────────────────────────┘
+
+PROJECT STRUCTURE:
+taasa-rice-processing-company/
+├── public/                  # Static assets
+│   ├── assets/
+│   │   ├── cerfif/        # Certification images
+│   │   ├── img/
+│   │   │   ├── pageimgs/ # Section images
+│   │   │   └── logos/     # Company logos
+│   │   └── SVG/           # SVG assets
+│   ├── robots.txt          # SEO - search engine directives
+│   ├── sitemap.xml         # SEO - XML sitemap
+│   └── manifest.json       # SEO - PWA manifest
+├── src/
+│   ├── components/
+│   │   ├── layout/        # Navbar, Footer
+│   │   ├── sections/      # Page sections
+│   │   └── ui/            # Reusable UI components
+│   ├── lib/
+│   │   └── constants.js   # Shared configuration
+│   ├── App.jsx            # Root component
+│   ├── main.jsx           # Entry point
+│   └── index.css          # Global styles
+├── index.html             # HTML entry with SEO
+├── tailwind.config.js    # Tailwind configuration
+├── vite.config.js        # Vite configuration
+└── package.json          # Dependencies
+
+RUNTIME FLOW:
+1. User visits https://taasariceprocessingcompany.netlify.app/
+2. index.html loads (contains all SEO meta tags)
+3. React app initializes
+4. LoadingScreen displays (if enabled)
+5. Main content loads with animations
+6. All sections render in viewport
+
+================================================================================
+                        4. SEO IMPLEMENTATION GUIDE
+================================================================================
+
+4.1 ON-PAGE SEO
+─────────────────────────────────────────────────────────────────────────────
+
+META TAGS IMPLEMENTED:
+- <title>: "TaaSa Rice Processing Company | Premium Rice Producer & Exporter Sri Lanka | ISO 9001 Certified"
+- <meta name="description">: Comprehensive 160+ character description
+- <meta name="keywords">: 50+ rice-related keywords
+- <meta name="robots">: index, follow with advanced directives
+- <link rel="canonical">: Points to primary URL
+
+HEADING STRUCTURE:
+- H1: Company tagline/hero headline
+- H2: Section titles (Features, About, Products, etc.)
+- H3: Subsection titles within sections
+- Proper hierarchy maintained throughout
+
+IMAGE SEO:
+- All images have descriptive alt attributes
+- Lazy loading implemented (loading="lazy")
+- Proper aspect ratios maintained
+
+URL STRUCTURE:
+- Clean, human-readable URLs
+- Section anchors for SPA navigation (#products, #contact)
+- No dynamic query parameters
+
+4.2 TECHNICAL SEO
+─────────────────────────────────────────────────────────────────────────────
+
+XML SITEMAP (sitemap.xml):
+- Contains all pages and sections
+- Image URLs included for Google Image search
+- Last modified dates
+- Priority and change frequency
+- Location: /sitemap.xml
+
+ROBOTS.TXT:
+- Allows all crawlers
+- Disallows private areas (/api/, /admin/)
+- Points to sitemap
+- Location: /robots.txt
+
+STRUCTURED DATA (JSON-LD):
+
+a) LocalBusiness Schema:
+- Company name, address, phone, email
+- Geographic coordinates
+- Opening hours (24/7)
+- Price range
+- Service area
+
+b) Organization Schema:
+- Founder information
+- Certifications (ISO 9001, ISO 22000, GMP)
+- Area served (Sri Lanka, Middle East, Africa)
+
+c) Product Schema:
+- White Rice product details
+- Non-Basmati Rice product details
+- SKU, GTIN, brand, manufacturer
+- Availability status
+
+d) FAQPage Schema:
+- 5 common questions and answers
+- Improves SERP appearance
+
+e) BreadcrumbList:
+- Navigation structure
+
+PWA SUPPORT:
+- manifest.json for installable app
+- Mobile-optimized viewport
+- Touch-friendly design
+
+4.3 LOCAL SEO
+─────────────────────────────────────────────────────────────────────────────
+
+GEO META TAGS:
+- <meta name="geo.region" content="LK-11">
+- <meta name="geo.placename" content="Navithanveli, Ampara, Sri Lanka">
+- <meta name="geo.position" content="7.412026;81.774292">
+
+LOCAL STRUCTURED DATA:
+- Sri Lanka coordinates
+- Ampara district region
+- Colombo correspondence address
+
+NAP CONSISTENCY:
+- Name: TaaSa Rice Processing Company
+- Address: No.446, Sri Vajiragnana Mawatha, Dematagoda Road, Colombo
+- Phone: +94 67 222 2540
+
+4.4 SOCIAL MEDIA OPTIMIZATION
+─────────────────────────────────────────────────────────────────────────────
+
+OPEN GRAPH (Facebook/LinkedIn):
+- og:type: website
+- og:title, og:description, og:image
+- og:locale: en_US
+- Product-specific tags
+
+TWITTER CARDS:
+- twitter:card: summary_large_image
+- twitter:title, twitter:description, twitter:image
+- Business type labels
+
+PINTEREST:
+- pinterest-rich-pin: true
+
+4.5 SEO FILES CREATED
+─────────────────────────────────────────────────────────────────────────────
+| File               | Purpose                                    |
+|-------------------|-------------------------------------------|
+| robots.txt        | Search engine directives                  |
+| sitemap.xml       | XML sitemap for crawlers                  |
+| manifest.json     | PWA manifest for mobile install           |
+| index.html        | Complete SEO meta & structured data       |
+
+================================================================================
+                        5. COMPONENT DOCUMENTATION
+================================================================================
+
+5.1 LAYOUT COMPONENTS
+─────────────────────────────────────────────────────────────────────────────
+
+NAVBAR (src/components/layout/Navbar.jsx)
+- Fixed position navigation
+- Transparent to solid on scroll
+- Mobile hamburger menu with animation
+- WhatsApp CTA button
+- Smooth scroll navigation
+
+FOOTER (src/components/layout/Footer.jsx)
+- Multi-column layout
+- Quick links navigation
+- Contact information
+- Social media links (WhatsApp, Facebook)
+- Scroll to top button
+- Wave divider at top
+
+5.2 SECTION COMPONENTS
+─────────────────────────────────────────────────────────────────────────────
+
+HERO (src/components/sections/Hero.jsx)
+- Full viewport height
+- Background image with parallax
+- Animated text reveals
+- Floating decorative elements
+- Wave divider
+
+FEATURES (src/components/sections/Features.jsx)
+- 3 feature cards
+- Card hover: content hides, image zooms
+- Custom icons and badges
+- Responsive grid
+
+ABOUT (src/components/sections/About.jsx)
+- Company story
+- Statistics (Years, Customers, Countries)
+- Badges (100% Pure, 25+ Years, IDB)
+- Parallax image effect
+
+MD MESSAGE (src/components/sections/MDMessage.jsx)
+- Managing Director photo
+- Larger image with drop shadow
+- Hover zoom effect
+- Company message
+
+CORE VALUES (src/components/sections/CoreValues.jsx)
+- 3 value cards (Timely Delivery, Competitive Pricing, Quality)
+- Custom colored icons
+- Animated borders on hover
+
+PROCESS (src/components/sections/Process.jsx)
+- 7 production steps
+- Glassmorphism card design
+- Arrows between steps
+- Responsive grid layout
+
+PRODUCTS (src/components/sections/Products.jsx)
+- Product cards with images
+- Taglines and descriptions
+- Feature lists
+- WhatsApp contact links
+
+CERTIFICATIONS (src/components/sections/Certifications.jsx)
+- ISO 9001, ISO 22000, GMP cards
+- Quality Promise section
+- Green checkmarks
+
+GALLERY (src/components/sections/Gallery.jsx)
+- Image grid
+- Lightbox viewer
+- Keyboard navigation
+
+REVIEWS (src/components/sections/Reviews.jsx)
+- Testimonial carousel
+- Auto-scroll
+- Navigation controls
+
+CONTACT (src/components/sections/Contact.jsx)
+- Google Maps embed
+- Contact form with WhatsApp integration
+- 24/7 availability indicator
+
+5.3 UI COMPONENTS
+─────────────────────────────────────────────────────────────────────────────
+
+WAVE DIVIDER (src/components/ui/WaveDivider.jsx)
+- Reusable wave component
+- 3-color gradient support
+- Customizable direction, height, style
+
+WHATSAPP BUTTON (src/components/ui/WhatsAppButton.jsx)
+- Fixed floating button
+- Pulse animation
+- Direct WhatsApp link
+
+LOADING SCREEN (src/components/ui/LoadingScreen.jsx)
+- Initial splash screen
+- Logo animation
+- 2-second display
+
+WHEAT ICON (src/components/ui/WheatIcon.jsx)
+- Brand icon component
+- Multiple animation variants
+
+FLOATING RICE (src/components/ui/FloatingRice.jsx)
+- Background animation
+- Rice icon floating upward
+
+================================================================================
+                        6. CONTENT & PRODUCT MANAGEMENT
+================================================================================
+
+6.1 COMPANY INFORMATION
+─────────────────────────────────────────────────────────────────────────────
+Located in: src/lib/constants.js
+
+// Always use these constants instead of hardcoding values
+COMPANY_INFO = {
+  name: 'TaaSa Rice Processing Company',
+  shortName: 'TaaSa',
+  phone: '+94 67 222 2540',
+  whatsapp: '+94 77 713 7732',
+  whatsappClean: '94777137732',
+  email: 'taasarice@gmail.com',
+  address: 'Chavalkadai, Navithanveli, Sri Lanka',
+  facebook: 'https://web.facebook.com/...',
+  defaultMessage: 'Hello TaaSa Rice...'
+}
+
+6.2 ADDING/UPDATING PRODUCTS
+─────────────────────────────────────────────────────────────────────────────
+File: src/components/sections/Products.jsx
+
+const products = [
+  {
+    id: 1,
+    name: 'White Rice',
+    tagline: 'Healthy Life for Every Family',
+    description: 'Product description...',
+    image: '/assets/img/pageimgs/white-rice.jpg',
+    badge: 'Best Seller',
+    features: ['ISO 9001 Certified', 'Consistent size', 'Rich in nutrients'],
+    icon: Award,
+    color: '#C9A227'
+  },
+  // Add more products...
+]
+
+6.3 GALLERY MANAGEMENT
+─────────────────────────────────────────────────────────────────────────────
+File: src/components/sections/Gallery.jsx
+
+const images = [
+  { src: '/assets/img/pageimgs/image1.jpg', alt: 'Description' },
+  { src: '/assets/img/pageimgs/image2.jpg', alt: 'Description' },
+  // Add more images...
+]
+
+================================================================================
+                        7. DESIGN SYSTEM & BRAND GUIDELINES
+================================================================================
+
+7.1 COLOR PALETTE
+─────────────────────────────────────────────────────────────────────────────
+
+PRIMARY COLORS:
+- Deep Green: #0B3D2E
+  Usage: Primary brand, backgrounds, text
+- Olive Green: #6B8E23
+  Usage: Secondary accent, icons
+- Accent Gold: #C9A227
+  Usage: Highlights, CTAs, badges
+
+NEUTRAL COLORS:
+- Cream: #F5F5DC
+  Usage: Section backgrounds, wave colors
+- Light Beige: #FAF7F0
+  Usage: Card backgrounds
+- Custom: #EFF0D3, #F0F1D5
+  Usage: Wave gradient mid colors
+
+7.2 TYPOGRAPHY
+─────────────────────────────────────────────────────────────────────────────
+
+HEADINGS:
+- Font: Carter One (cursive)
+- Fallback: system-ui, cursive
+
+BODY TEXT:
+- Font: Nunito Sans (sans-serif)
+- Fallback: system-ui, sans-serif
+
+BUTTONS/LABELS:
+- Font: Handlee (cursive)
+- Fallback: system-ui, cursive
+
+7.3 COMPONENT STYLES
+─────────────────────────────────────────────────────────────────────────────
+
+BUTTONS:
+- Primary: bg-accent-gold, text-deep-green
+- Secondary: bg-deep-green, text-white
+- Outline: border-accent-gold, text-accent-gold
+
+CARDS:
+- Background: white
+- Border radius: 1.5rem (24px)
+- Shadow: shadow-lg (hover: shadow-2xl)
+
+GRADIENTS:
+- Hero overlay: deep-green with opacity
+- Text gradients: gold, green variants
+
+================================================================================
+                        8. RESPONSIVE DESIGN STRATEGY
+================================================================================
+
+8.1 BREAKPOINT SYSTEM
+─────────────────────────────────────────────────────────────────────────────
+
+DEFAULT (Mobile First):
+- < 640px
+- Single column layouts
+- Hamburger menu
+- Compact spacing
+
+sm: (640px+):
+- Large mobile
+- 2-column grids
+
+md: (768px+):
+- Tablet
+- Expanded layouts
+
+lg: (1024px+):
+- Desktop
+- Full navigation visible
+
+xl: (1280px+):
+- Large desktop
+- Maximum content width
+
+8.2 ADAPTIVE COMPONENTS
+─────────────────────────────────────────────────────────────────────────────
+
+NAVBAR:
+- Desktop: Full horizontal navigation
+- Mobile: Hamburger with slide-down menu
+
+GRIDS:
+- Features: 1 → 2 → 3 columns
+- Products: 1 → 2 columns
+- Gallery: 2 → 3 columns
+- Core Values: 1 → 2 → 3 columns
+
+IMAGES:
+- Responsive with aspect-ratio
+- Lazy loading
+- Object-fit: cover
+
+================================================================================
+                        9. PERFORMANCE OPTIMIZATION
+================================================================================
+
+9.1 BUILD OPTIMIZATION
+─────────────────────────────────────────────────────────────────────────────
+
+Vite Features:
+- Code splitting
+- Tree shaking
+- CSS minification
+- Asset optimization
+
+Production Build:
+npm run build
+# Output: dist/ folder (~500KB total)
+
+9.2 RUNTIME OPTIMIZATION
+─────────────────────────────────────────────────────────────────────────────
+
+Image Optimization:
+- Lazy loading with loading="lazy"
+- Proper sizing with srcset (future enhancement)
+- WebP format (future enhancement)
+
+Code Optimization:
+- Framer Motion for smooth 60fps animations
+- React.memo for static components (future)
+- useCallback for event handlers (future)
+
+9.3 CACHING STRATEGY
+─────────────────────────────────────────────────────────────────────────────
+
+Static Assets:
+- Long cache headers (hash-based filenames)
+- CDN delivery via Netlify
+
+================================================================================
+                        10. SECURITY CONSIDERATIONS
+================================================================================
+
+IMPLEMENTED:
+- ✅ HTTPS by default (Netlify)
+- ✅ No sensitive data in client code
+- ✅ Form input sanitization
+- ✅ External link security (rel="noopener noreferrer")
+
+FUTURE RECOMMENDATIONS:
+- Content Security Policy (CSP)
+- Rate limiting on contact form
+- CAPTCHA for spam prevention
+
+================================================================================
+                        11. DEPLOYMENT GUIDE
+================================================================================
+
+11.1 NETLIFY (Recommended)
+─────────────────────────────────────────────────────────────────────────────
+
+Manual Deployment:
+1. Build: npm run build
+2. Drag & drop dist/ folder to Netlify dashboard
+
+Git Integration:
+1. Connect GitHub repository to Netlify
+2. Settings:
+   - Build command: npm run build
+   - Publish directory: dist
+3. Deploy! 🎉
+
+Automatic Deployments:
+- Every push triggers new deployment
+- Branch deploys for testing
+
+11.2 VERCEL
+─────────────────────────────────────────────────────────────────────────────
+
+npm i -g vercel
+vercel
+
+11.3 MANUAL/PRODUCTIONAL
+─────────────────────────────────────────────────────────────────────────────
+
+1. Run: npm run build
+2. Upload dist/ folder to hosting
+3. Configure custom domain (optional)
+
+================================================================================
+                        12. ANALYTICS & TRACKING SETUP
+================================================================================
+
+12.1 GOOGLE ANALYTICS 4
+─────────────────────────────────────────────────────────────────────────────
+
+Setup Steps:
+1. Go to analytics.google.com
+2. Create new GA4 property
+3. Get Measurement ID (G-XXXXXXXXXX)
+4. Add to index.html:
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+Recommended Events:
+- Page view
+- WhatsApp button clicks
+- Form submissions
+- Phone number clicks
+
+12.2 GOOGLE SEARCH CONSOLE
+─────────────────────────────────────────────────────────────────────────────
+
+Setup:
+1. Go to search.google.com/search-console
+2. Add property: https://taasariceprocessingcompany.netlify.app/
+3. Verify via:
+   - HTML meta tag (already in index.html)
+   - Or DNS TXT record
+4. Submit sitemap: https://taasariceprocessingcompany.netlify.app/sitemap.xml
+
+Monitor:
+- Search impressions
+- Click-through rates
+- Index coverage
+- Core Web Vitals
+
+12.3 FACEBOOK PIXEL (Future)
+─────────────────────────────────────────────────────────────────────────────
+
+For Facebook advertising:
+1. Create Facebook Business account
+2. Get Pixel ID
+3. Add to index.html
+4. Track conversions
+
+================================================================================
+                        13. MARKETING INTEGRATION
+================================================================================
+
+13.1 WHATSAPP BUSINESS
+─────────────────────────────────────────────────────────────────────────────
+
+Features Implemented:
+- WhatsAppButton component (floating)
+- WhatsApp link in Contact section
+- Pre-filled message support
+- Direct chat without saving number
+
+How to Use:
+<a href="https://wa.me/94777137732?text=Hello...">Chat</a>
+
+13.2 SOCIAL MEDIA LINKS
+─────────────────────────────────────────────────────────────────────────────
+
+Facebook: https://web.facebook.com/p/TaaSa-Rice-Processing-Company-Private-Limited-100063943992981
+WhatsApp: +94 77 713 7732
+
+13.3 SEO MARKETING (Future)
+─────────────────────────────────────────────────────────────────────────────
+
+Google Business Profile:
+1. Create/claim listing
+2. Add photos, hours, services
+3. Get reviews from customers
+
+Directory Submissions:
+- Sri Lanka business directories
+- International trade directories
+
+================================================================================
+                        14. TROUBLESHOOTING & FAQ
+================================================================================
+
+Q: Build fails with errors?
+A: 
+  1. Clear node_modules: rm -rf node_modules
+  2. Reinstall: npm install
+  3. Try build again: npm run build
+
+Q: Images not loading?
+A: 
+  1. Check public/assets/ folder exists
+  2. Verify file paths in code
+  3. Check browser console for 404s
+
+Q: Animations not working?
+A: 
+  1. Check Framer Motion is imported
+  2. Verify React version compatibility
+  3. Check browser supports CSS animations
+
+Q: Mobile menu not working?
+A: 
+  1. Check Navbar component for state
+  2. Verify CSS classes for mobile menu
+  3. Test with responsive mode in dev tools
+
+Q: SEO not showing in Google?
+A: 
+  1. Submit sitemap to Search Console
+  2. Wait 1-2 weeks for indexing
+  3. Check meta tags in page source
+  4. Verify robots.txt allows crawling
+
+Q: WhatsApp link not working?
+A: 
+  1. Check phone number format
+  2. Verify whatsappClean in constants.js
+  3. Test on actual device
+
+================================================================================
+                        15. FUTURE ENHANCEMENTS
+================================================================================
+
+RECOMMENDED ADDITIONS:
+
+PHASE 1 (Quick Wins):
+- [ ] Google Analytics 4 setup
+- [ ] Google Search Console verification
+- [ ] More FAQ content
+- [ ] Blog/news section
+
+PHASE 2 (Medium Term):
+- [ ] Multi-language support (Tamil, Sinhala)
+- [ ] Product detail pages
+- [ ] Video content for process
+- [ ] Customer review system
+
+PHASE 3 (Long Term):
+- [ ] E-commerce functionality
+- [ ] Online ordering system
+- [ ] Customer portal
+- [ ] Live chat support
+- [ ] WhatsApp Business API integration
+- [ ] PWA app features
+
+================================================================================
+                        16. APPENDIX
+================================================================================
+
+16.1 GLOSSARY
+─────────────────────────────────────────────────────────────────────────────
+
+SPA: Single Page Application
+PWA: Progressive Web App
+SEO: Search Engine Optimization
+OG: Open Graph (social sharing)
+JSON-LD: JavaScript Object Notation for Linked Data
+NAP: Name, Address, Phone
+CTR: Click-Through Rate
+GA4: Google Analytics 4
+GSC: Google Search Console
+
+16.2 FILE SIZES
+─────────────────────────────────────────────────────────────────────────────
+
+Typical Production Build:
+- HTML: ~6 KB
+- CSS: ~54 KB (gzipped: ~10 KB)
+- JS: ~365 KB (gzipped: ~109 KB)
+- Images: Variable (depends on assets)
+
+16.3 BROWSER SUPPORT
+─────────────────────────────────────────────────────────────────────────────
+
+Supported:
+- Chrome 90+
+- Firefox 90+
+- Safari 14+
+- Edge 90+
+
+16.4 ACCESSIBILITY
+─────────────────────────────────────────────────────────────────────────────
+
+Implemented:
+- Semantic HTML
+- ARIA labels
+- Keyboard navigation
+- Focus states
+- Screen reader friendly
+
+================================================================================
+                              END OF DOCUMENTATION
+================================================================================
+
+Document Version: 2.0.0
+Last Updated: April 2026
+Website: https://taasariceprocessingcompany.netlify.app/
+Company: TaaSa Rice Processing Company (Pvt) Ltd
+Location: Navithanveli, Ampara, Sri Lanka
+
+================================================================================

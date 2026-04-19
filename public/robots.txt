@@ -1,0 +1,13 @@
+# TaaSa Rice Processing Company - Robots.txt
+# https://taasabusinessgroup.com/
+
+User-agent: *
+Allow: /
+
+# Block unnecessary areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://taasabusinessgroup.com/sitemap.xml
