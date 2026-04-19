@@ -128,7 +128,7 @@ export default function CompanyPageLayout({ children, company }) {
             animate={{ opacity: 1, scaleY: 1 }}
             exit={{ opacity: 0, scaleY: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="md:hidden overflow-hidden origin-top"
+            className="md:hidden overflow-hidden origin-top fixed inset-x-0 top-full max-h-[calc(100vh-4rem)] overflow-y-auto"
             style={{ backgroundColor: company?.color || '#0B3D2E' }}
           >
             <div className="px-4 py-5 space-y-1">

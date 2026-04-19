@@ -46,7 +46,7 @@ function Navbar() {
         </button>
       </div>
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 py-4 px-4" style={{ backgroundColor: COLORS.color }}>
+        <div className="md:hidden absolute top-full left-0 right-0 py-4 px-4 max-h-[calc(100vh-4rem)] overflow-y-auto" style={{ backgroundColor: COLORS.color }}>
           <Link to="#home" className="block font-cursive text-white py-3 border-b border-white/10" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           <Link to="#companies" className="block font-cursive text-white py-3 border-b border-white/10" onClick={() => setIsMobileMenuOpen(false)}>Companies</Link>
           <Link to="#about" className="block font-cursive text-white py-3 border-b border-white/10" onClick={() => setIsMobileMenuOpen(false)}>About</Link>

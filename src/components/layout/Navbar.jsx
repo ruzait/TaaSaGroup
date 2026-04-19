@@ -121,7 +121,7 @@ export default function Navbar() {
             animate={{ opacity: 1, scaleY: 1 }}
             exit={{ opacity: 0, scaleY: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="md:hidden bg-deep-green/98 backdrop-blur-lg overflow-hidden origin-top"
+            className="md:hidden bg-deep-green/98 backdrop-blur-lg overflow-hidden origin-top fixed inset-x-0 top-full max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
             <div className="px-4 py-5 sm:py-6 space-y-1 sm:space-y-2">
               {NAV_LINKS.map((link, index) => (

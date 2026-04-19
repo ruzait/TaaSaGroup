@@ -232,7 +232,7 @@ function Navbar({ company }) {
           animate={{ opacity: 1, scaleY: 1 }}
           exit={{ opacity: 0, scaleY: 0 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="md:hidden bg-deep-green/98 backdrop-blur-lg overflow-hidden origin-top"
+          className="md:hidden bg-deep-green/98 backdrop-blur-lg overflow-hidden origin-top fixed inset-x-0 top-full max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <div className="px-4 py-5 space-y-1">
             {NAV_LINKS.map((link) => (
