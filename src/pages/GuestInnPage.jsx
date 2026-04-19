@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Home, Check, Coffee, Wifi, Utensils, Car, Phone, Mail, MapPin } from 'lucide-react'
-import Contact from '../components/sections/Contact'
+import { Phone, Mail, MapPin } from 'lucide-react'
 import { WaveGradient } from '../components/ui/WaveDivider'
 import WhatsAppButton from '../components/ui/WhatsAppButton'
 import Logo from '/assets/img/logos/TaaSa.svg'
 import LoadingScreen from '../components/ui/LoadingScreen'
+import UnderDevelopmentBanner from '../components/ui/UnderDevelopmentBanner'
 import { COMPANIES } from '../lib/constants'
 
 const COLORS = { color: COMPANIES[3].color, accent: COMPANIES[3].accent, bg: '#F5F5DC' }
@@ -38,11 +38,7 @@ export default function GuestInnPage() {
       {isLoading && <LoadingScreen title={company.shortName} subtitle={company.tagline} primaryColor={company.color} accentColor={company.accent} bgColor={company.color} />}
       <Navbar company={company} />
       <Hero />
-      <About />
-      <Rooms />
-      <Amenities />
-      <WhyStay />
-      <Contact colors={{ bg: COLORS.bg, primary: '#662222', accent: COLORS.accent }} />
+      <UnderDevelopmentBanner company={company} />
       <Footer company={company} />
       <WhatsAppButton />
     </>
@@ -183,89 +179,6 @@ function Footer({ company }) {
   )
 }
 
-function About() {
-  return (
-    <section id="about" className="py-20 px-4" style={{ backgroundColor: COLORS.bg }}>
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}>
-            <p className="font-nunito text-gray-700 text-lg">{COMPANIES[3].description}</p>
-            <p className="font-nunito text-gray-700 mt-4">Experience warm Sri Lankan hospitality at its best. Our guest house offers comfortable accommodations with authentic local experiences.</p>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} className="grid grid-cols-2 gap-4">
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}><Home className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} /><h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Cozy</h4><p className="text-sm text-gray-600">Rooms</p></div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}><Coffee className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} /><h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Local</h4><p className="text-sm text-gray-600">Cuisine</p></div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}><Utensils className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} /><h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Home</h4><p className="text-sm text-gray-600">Cooking</p></div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}><Wifi className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} /><h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Free</h4><p className="text-sm text-gray-600">WiFi</p></div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Rooms() {
-  return (
-    <section id="rooms" className="py-20 px-4" style={{ backgroundColor: 'white' }}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h2 className="font-cursive font-bold text-4xl mb-4" style={{ color: COLORS.color }}>Our Rooms</h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: COLORS.accent }} />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {['Standard Room', 'Deluxe Room', 'Family Suite'].map((room, index) => (
-            <motion.div key={room} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} className="rounded-xl overflow-hidden" style={{ backgroundColor: COLORS.bg }}>
-              <div className="h-40" style={{ backgroundColor: COLORS.color }} />
-              <div className="p-6">
-                <h3 className="font-handlee font-bold text-xl mb-2" style={{ color: COLORS.color }}>{room}</h3>
-                <p className="font-nunito text-gray-600 text-sm">Comfortable accommodation with all essential amenities.</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Amenities() {
-  return (
-    <section id="amenities" className="py-20 px-4" style={{ backgroundColor: COLORS.color }}>
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-          <h2 className="font-cursive font-bold text-3xl text-white mb-8">Amenities</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="p-4 rounded-xl" style={{ backgroundColor: 'white/10' }}><Wifi className="w-8 h-8 mx-auto mb-2" style={{ color: COLORS.accent }} /><p className="text-white text-sm">Free WiFi</p></div>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: 'white/10' }}><Coffee className="w-8 h-8 mx-auto mb-2" style={{ color: COLORS.accent }} /><p className="text-white text-sm">Breakfast</p></div>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: 'white/10' }}><Car className="w-8 h-8 mx-auto mb-2" style={{ color: COLORS.accent }} /><p className="text-white text-sm">Parking</p></div>
-            <div className="p-4 rounded-xl" style={{ backgroundColor: 'white/10' }}><Home className="w-8 h-8 mx-auto mb-2" style={{ color: COLORS.accent }} /><p className="text-white text-sm">24/7 Service</p></div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-function WhyStay() {
-  return (
-    <section className="py-20 px-4" style={{ backgroundColor: COLORS.bg }}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h2 className="font-cursive font-bold text-4xl mb-4" style={{ color: COLORS.color }}>Why Stay With Us</h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: COLORS.accent }} />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {['Authentic Sri Lankan Experience', 'Warm Hospitality', 'Great Location', 'Affordable Pricing'].map((item, i) => (
-            <motion.div key={item} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="flex items-center gap-3 p-4 rounded-xl bg-white">
-              <Check className="w-5 h-5" style={{ color: COLORS.accent }} />
-              <span className="font-nunito font-medium" style={{ color: COLORS.color }}>{item}</span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 
 

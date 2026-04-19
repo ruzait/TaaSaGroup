@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Globe, Truck, Package, TrendingUp, Check, Phone, Mail, MapPin } from 'lucide-react'
-import Contact from '../components/sections/Contact'
+import { motion } from 'framer-motion'
+import { Phone, Mail, MapPin } from 'lucide-react'
 import { WaveGradient } from '../components/ui/WaveDivider'
 import WhatsAppButton from '../components/ui/WhatsAppButton'
 import Logo from '/assets/img/logos/TaaSa.svg'
 import LoadingScreen from '../components/ui/LoadingScreen'
+import UnderDevelopmentBanner from '../components/ui/UnderDevelopmentBanner'
 import { COMPANIES } from '../lib/constants'
 
 const COLORS = {
@@ -55,11 +55,7 @@ export default function TradingPage() {
       />}
       <Navbar company={company} />
       <Hero />
-      <About />
-      <Services />
-      <GlobalNetwork />
-      <WhyUs />
-      <Contact colors={{ bg: COLORS.bg, primary: COLORS.color, accent: COLORS.accent }} />
+      <UnderDevelopmentBanner company={company} />
       <Footer company={company} />
       <WhatsAppButton />
     </>
@@ -230,111 +226,6 @@ function Footer({ company }) {
         </div>
       </div>
     </footer>
-  )
-}
-
-function About() {
-  return (
-    <section id="about" className="py-20 px-4" style={{ backgroundColor: COLORS.bg }}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h2 className="font-cursive font-bold text-4xl mb-4" style={{ color: COLORS.color }}>About {COMPANIES[1].shortName}</h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: COLORS.accent }} />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} className="space-y-6">
-            <p className="font-nunito text-gray-700 text-lg">{COMPANIES[1].description}</p>
-            <p className="font-nunito text-gray-700">We specialize in international trade, connecting Sri Lankan products with global markets. Our extensive network ensures reliable supply chain solutions for businesses worldwide.</p>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} className="grid grid-cols-2 gap-4">
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}>
-              <Globe className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} />
-              <h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Global</h4>
-              <p className="text-sm text-gray-600">Markets</p>
-            </div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}>
-              <Truck className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} />
-              <h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Fast</h4>
-              <p className="text-sm text-gray-600">Delivery</p>
-            </div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}>
-              <Package className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} />
-              <h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Quality</h4>
-              <p className="text-sm text-gray-600">Products</p>
-            </div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}>
-              <TrendingUp className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} />
-              <h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Trusted</h4>
-              <p className="text-sm text-gray-600">Partner</p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Services() {
-  return (
-    <section id="services" className="py-20 px-4" style={{ backgroundColor: 'white' }}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h2 className="font-cursive font-bold text-4xl mb-4" style={{ color: COLORS.color }}>Our Services</h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: COLORS.accent }} />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {COMPANIES[1].features.map((feature, index) => (
-            <motion.div
-              key={feature}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="p-6 rounded-xl"
-              style={{ backgroundColor: COLORS.bg, borderLeft: `4px solid ${COLORS.accent}` }}
-            >
-              <Check className="w-6 h-6 mb-3" style={{ color: COLORS.accent }} />
-              <h3 className="font-handlee font-bold text-lg mb-2" style={{ color: COLORS.color }}>{feature}</h3>
-              <p className="font-nunito text-gray-600 text-sm">Professional services tailored to your needs.</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function GlobalNetwork() {
-  return (
-    <section className="py-20 px-4" style={{ backgroundColor: COLORS.color }}>
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-          <Globe className="w-20 h-20 mx-auto mb-6" style={{ color: COLORS.accent }} />
-          <h2 className="font-cursive font-bold text-3xl text-white mb-4">Global Trade Network</h2>
-          <p className="text-white/70 max-w-2xl mx-auto">We connect Sri Lankan businesses with markets across the Middle East, Africa, Europe, and Asia. Our established logistics ensure smooth international trade.</p>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-function WhyUs() {
-  return (
-    <section className="py-20 px-4" style={{ backgroundColor: COLORS.bg }}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h2 className="font-cursive font-bold text-4xl mb-4" style={{ color: COLORS.color }}>Why Choose Us</h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: COLORS.accent }} />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {['Experienced Team', 'Competitive Pricing', 'Reliable Supply Chain', '24/7 Support'].map((item, i) => (
-            <motion.div key={item} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="flex items-center gap-3 p-4 rounded-xl bg-white">
-              <Check className="w-5 h-5" style={{ color: COLORS.accent }} />
-              <span className="font-nunito font-medium" style={{ color: COLORS.color }}>{item}</span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
   )
 }
 

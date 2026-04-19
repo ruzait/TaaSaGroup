@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Package, Check, Recycle, Truck, Shield, Leaf, Phone, Mail, MapPin } from 'lucide-react'
-import Contact from '../components/sections/Contact'
+import { Phone, Mail, MapPin } from 'lucide-react'
 import { WaveGradient } from '../components/ui/WaveDivider'
 import WhatsAppButton from '../components/ui/WhatsAppButton'
 import Logo from '/assets/img/logos/TaaSa.svg'
 import LoadingScreen from '../components/ui/LoadingScreen'
+import UnderDevelopmentBanner from '../components/ui/UnderDevelopmentBanner'
 import { COMPANIES } from '../lib/constants'
 
 const COLORS = { color: COMPANIES[2].color, accent: COMPANIES[2].accent, bg: '#F5F5DC' }
@@ -38,11 +38,7 @@ export default function PackagingPage() {
       {isLoading && <LoadingScreen title={company.shortName} subtitle={company.tagline} primaryColor={company.color} accentColor={company.accent} bgColor={company.color} />}
       <Navbar company={company} />
       <Hero />
-      <About />
-      <Products />
-      <Sustainability />
-      <WhyUs />
-      <Contact colors={{ bg: COLORS.bg, primary: COLORS.color, accent: COLORS.accent }} />
+      <UnderDevelopmentBanner company={company} />
       <Footer company={company} />
       <WhatsAppButton />
     </>
@@ -180,88 +176,5 @@ function Footer({ company }) {
     </footer>
   )
 }
-
-function About() {
-  return (
-    <section id="about" className="py-20 px-4" style={{ backgroundColor: COLORS.bg }}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h2 className="font-cursive font-bold text-4xl mb-4" style={{ color: COLORS.color }}>About {COMPANIES[2].shortName}</h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: COLORS.accent }} />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} className="space-y-6">
-            <p className="font-nunito text-gray-700 text-lg">{COMPANIES[2].description}</p>
-            <p className="font-nunito text-gray-700">We provide innovative packaging solutions for food, retail, and industrial sectors. Our commitment to quality and sustainability sets us apart.</p>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} className="grid grid-cols-2 gap-4">
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}><Recycle className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} /><h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Eco</h4><p className="text-sm text-gray-600">Friendly</p></div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}><Shield className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} /><h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Safe</h4><p className="text-sm text-gray-600">Materials</p></div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}><Package className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} /><h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Custom</h4><p className="text-sm text-gray-600">Designs</p></div>
-            <div className="p-6 rounded-xl text-center" style={{ backgroundColor: 'white' }}><Truck className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} /><h4 className="font-bold text-2xl" style={{ color: COLORS.color }}>Fast</h4><p className="text-sm text-gray-600">Delivery</p></div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Products() {
-  return (
-    <section id="products" className="py-20 px-4" style={{ backgroundColor: 'white' }}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h2 className="font-cursive font-bold text-4xl mb-4" style={{ color: COLORS.color }}>Our Products</h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: COLORS.accent }} />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {COMPANIES[2].features.map((feature, index) => (
-            <motion.div key={feature} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} className="p-6 rounded-xl" style={{ backgroundColor: COLORS.bg, borderLeft: `4px solid ${COLORS.accent}` }}>
-              <Check className="w-6 h-6 mb-3" style={{ color: COLORS.accent }} />
-              <h3 className="font-handlee font-bold text-lg mb-2" style={{ color: COLORS.color }}>{feature}</h3>
-              <p className="font-nunito text-gray-600 text-sm">Professional services tailored to your needs.</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Sustainability() {
-  return (
-    <section className="py-20 px-4" style={{ backgroundColor: COLORS.color }}>
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-          <Leaf className="w-20 h-20 mx-auto mb-6" style={{ color: COLORS.accent }} />
-          <h2 className="font-cursive font-bold text-3xl text-white mb-4">Sustainable Packaging</h2>
-          <p className="text-white/70 max-w-2xl mx-auto">We are committed to eco-friendly solutions. Our packaging materials are recyclable and environmentally responsible.</p>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-function WhyUs() {
-  return (
-    <section className="py-20 px-4" style={{ backgroundColor: COLORS.bg }}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h2 className="font-cursive font-bold text-4xl mb-4" style={{ color: COLORS.color }}>Why Choose Us</h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ backgroundColor: COLORS.accent }} />
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {['Quality Materials', 'Competitive Pricing', 'On-Time Delivery', 'Custom Solutions'].map((item, i) => (
-            <motion.div key={item} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="flex items-center gap-3 p-4 rounded-xl bg-white">
-              <Check className="w-5 h-5" style={{ color: COLORS.accent }} />
-              <span className="font-nunito font-medium" style={{ color: COLORS.color }}>{item}</span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 
 
