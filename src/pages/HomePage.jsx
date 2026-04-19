@@ -478,27 +478,29 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {COMPANIES.map((company, index) => (
-              <motion.div
-                key={company.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-4 sm:p-6 rounded-2xl text-center group cursor-pointer"
-                style={{ backgroundColor: company.color }}
-              >
-                <div className="text-4xl sm:text-5xl mb-3 text-white drop-shadow-lg">
-                  {company.id === 'taasa-rice' && '🌾'}
-                  {company.id === 'taasa-trading' && '🚢'}
-                  {company.id === 'taasa-packaging' && '📦'}
-                  {company.id === 'taasa-guestinn' && '🏠'}
-                  {company.id === 'taasa-resort' && '🏝️'}
-                </div>
-                <h3 className="font-cursive font-bold text-base sm:text-lg text-white">{company.shortName}</h3>
-                <p className="font-nunito text-white/80 text-xs sm:text-sm mt-1">{company.sector}</p>
-              </motion.div>
+              <Link key={company.id} to={`/company/${company.id}`}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="p-4 sm:p-6 rounded-2xl text-center group cursor-pointer"
+                  style={{ backgroundColor: company.color }}
+                >
+                  <div className="text-4xl sm:text-5xl mb-3 text-white drop-shadow-lg">
+                    {company.id === 'taasa-rice' && '🌾'}
+                    {company.id === 'taasa-trading' && '🚢'}
+                    {company.id === 'taasa-packaging' && '📦'}
+                    {company.id === 'taasa-guestinn' && '🏠'}
+                    {company.id === 'taasa-resort' && '🏝️'}
+                  </div>
+                  <h3 className="font-cursive font-bold text-base sm:text-lg text-white">{company.shortName}</h3>
+                  <p className="font-nunito text-white/80 text-xs sm:text-sm mt-1">{company.sector}</p>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
