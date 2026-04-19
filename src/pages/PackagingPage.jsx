@@ -89,10 +89,10 @@ function Navbar({ company }) {
             </div>
             <Link to="#contact" className="px-6 py-2 rounded-full font-cursive text-white" style={{ backgroundColor: COLORS.accent }}>Contact</Link>
           </div>
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-white p-2" aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}>
+            {isMobileMenuOpen ? <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 18L18 6M6 6l12 12" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>}
+          </button>
         </div>
-        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-white p-2" aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}>
-          {isMobileMenuOpen ? <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 18L18 6M6 6l12 12" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>}
-        </button>
       </div>
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 py-4 px-4 max-h-[calc(100vh-4rem)] overflow-y-auto" style={{ backgroundColor: COLORS.color }}>

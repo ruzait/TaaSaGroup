@@ -12,6 +12,8 @@
   html, body, #root {
     overflow-x: hidden;
     max-width: 100vw;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   body {
@@ -20,6 +22,16 @@
     overflow-x: hidden;
     line-height: 1.6;
     max-width: 100vw;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  #root::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
   
   h1, h2 {
@@ -43,7 +55,8 @@
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -51,12 +64,45 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #c9a227;
-    border-radius: 4px;
+    background: #c9a22740;
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #b8922a;
+    background: #b8922a80;
+  }
+
+  @media (max-width: 768px) {
+    *::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent !important;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: transparent !important;
+      display: none !important;
+    }
+
+    html, body, #root,
+    section, main, nav, footer,
+    div, ul, ol {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    .hide-scrollbar-mobile {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    .hide-scrollbar-mobile::-webkit-scrollbar {
+      display: none !important;
+    }
   }
 
   *:focus-visible {

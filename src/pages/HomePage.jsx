@@ -20,7 +20,7 @@ function Navbar() {
     <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${!isScrolled ? 'py-4' : 'py-2'}`} style={{ backgroundColor: isScrolled ? `${COLORS.color}F2` : 'transparent', backdropFilter: isScrolled ? 'blur(12px)' : 'none' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3"><img src={Logo} alt="TaaSa" className="w-16 h-12 bg-white/90 rounded-lg p-1" /><span className="font-cursive font-bold text-xl text-white">TaaSa Business Group</span></Link>
+          <Link to="/" className="flex items-center gap-3"><img src={Logo} alt="TaaSa" className="w-16 h-12 bg-white/90 rounded-lg p-1" /><span className="font-cursive font-bold text-xl text-white hidden sm:block">TaaSa Business Group</span></Link>
           <div className="hidden md:flex items-center gap-6">
             <Link to="#home" className="font-cursive text-white">Home</Link>
             <Link to="#companies" className="font-cursive text-white">Companies</Link>
@@ -40,10 +40,10 @@ function Navbar() {
             </div>
             <Link to="#contact" className="px-6 py-2 rounded-full font-cursive text-white" style={{ backgroundColor: COLORS.accent }}>Contact</Link>
           </div>
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-white p-2" aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}>
+            {isMobileMenuOpen ? <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 18L18 6M6 6l12 12" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>}
+          </button>
         </div>
-        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-white p-2" aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}>
-          {isMobileMenuOpen ? <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 18L18 6M6 6l12 12" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>}
-        </button>
       </div>
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 py-4 px-4 max-h-[calc(100vh-4rem)] overflow-y-auto" style={{ backgroundColor: COLORS.color }}>
