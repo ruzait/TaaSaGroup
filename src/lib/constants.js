@@ -101,6 +101,9 @@ export const COMPANIES = [
 export const COMPANY_INFO = {
   name: 'TaaSa Rice Processing Company',
   shortName: 'TaaSa',
+  sector: 'Rice Processing',
+  tagline: 'Premium Quality Rice from Paddy to Table',
+  description: 'Leading White Raw Rice IRR64 Producer, Importer and Exporter in Sri Lanka. Delivering premium quality rice to families and businesses since 2014.',
   phone: '+94 672 222 540',
   whatsapp: '+94 72 051 6432',
   whatsappClean: '94720516432',

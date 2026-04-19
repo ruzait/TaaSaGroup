@@ -33,6 +33,14 @@
     width: 0;
     height: 0;
   }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  #root::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
   
   h1, h2 {
     font-family: 'Carter One', cursive;
@@ -72,36 +80,31 @@
     background: #b8922a80;
   }
 
+  /* Block horizontal overflow only, allow vertical */
+  html {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   @media (max-width: 768px) {
-    *::-webkit-scrollbar {
-      display: none !important;
-      width: 0 !important;
-      height: 0 !important;
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
     }
 
-    *::-webkit-scrollbar-track {
-      background: transparent !important;
+    * {
+      max-width: 100vw;
     }
 
-    *::-webkit-scrollbar-thumb {
-      background: transparent !important;
-      display: none !important;
-    }
-
-    html, body, #root,
-    section, main, nav, footer,
-    div, ul, ol {
-      scrollbar-width: none !important;
-      -ms-overflow-style: none !important;
-    }
-
-    .hide-scrollbar-mobile {
-      scrollbar-width: none !important;
-      -ms-overflow-style: none !important;
-    }
-
-    .hide-scrollbar-mobile::-webkit-scrollbar {
-      display: none !important;
+    /* But allow navbar menu to scroll internally */
+    .fixed.z-\[90\].top-\[60px\] {
+      overflow-y: auto !important;
     }
   }
 
@@ -925,14 +928,12 @@
   }
 
   html, body, #root {
-    overflow-x: hidden !important;
     max-width: 100vw !important;
     width: 100% !important;
   }
 
   * {
     max-width: 100vw !important;
-    overflow-x: hidden !important;
   }
 }
 
@@ -940,14 +941,29 @@
   .heading-responsive {
     font-size: 1.75rem !important;
   }
-  
+
   .subheading-responsive {
     font-size: 0.95rem !important;
   }
-  
+
   .container-padding {
     padding-left: 0.875rem !important;
     padding-right: 0.875rem !important;
+  }
+
+  /* Hide decorative blur elements that extend beyond viewport on mobile */
+  .absolute.-right-40,
+  .absolute.-right-20,
+  .absolute.-right-6,
+  .absolute.-right-8,
+  [class*="blur-3xl"][style*="right"],
+  [class*="blur-2xl"][style*="right"] {
+    display: none !important;
+  }
+
+  /* Ensure navbar mobile menu is clickable */
+  .fixed.z-\[90\] {
+    overflow-y: auto !important;
   }
 }
 

@@ -85,7 +85,7 @@ export default function CompanyLayout({ children, company, showFloating = true }
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500"
         style={{ 
           backgroundColor: isScrolled ? bgColor : 'transparent',
           backdropFilter: isScrolled ? 'blur(12px)' : 'none',
@@ -96,11 +96,11 @@ export default function CompanyLayout({ children, company, showFloating = true }
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3 touch-target">
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 touch-target">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-16 h-12 sm:w-20 sm:h-14 rounded-2xl overflow-hidden p-1 sm:p-1.5 bg-white/90"
+                className="w-12 h-10 sm:w-16 sm:h-12 rounded-xl overflow-hidden p-0.5 sm:p-1 bg-white/90"
               >
                 <img 
                   src={Logo} 
@@ -109,17 +109,17 @@ export default function CompanyLayout({ children, company, showFloating = true }
                   loading="eager"
                 />
               </motion.div>
-              <span className="font-cursive font-bold text-xl sm:text-2xl hidden sm:block" style={{ color: textColor }}>
+              <span className="font-cursive font-bold text-lg sm:text-2xl hidden sm:block" style={{ color: textColor }}>
                 {company?.shortName || 'TaaSa Business Group'}
               </span>
             </Link>
 
-            <div className="hidden md:flex items-center gap-6">
-              <Link to="/" className="font-cursive font-medium hover:opacity-80 transition-opacity" style={{ color: textColor }}>
+            <div className="hidden lg:flex items-center gap-5 xl:gap-6">
+              <Link to="/" className="font-cursive font-medium hover:opacity-80 transition-opacity text-sm xl:text-base" style={{ color: textColor }}>
                 Home
               </Link>
               <div className="relative group">
-                <button className="font-cursive font-medium flex items-center gap-1 hover:opacity-80 transition-opacity" style={{ color: textColor }}>
+                <button className="font-cursive font-medium flex items-center gap-1 hover:opacity-80 transition-opacity text-sm xl:text-base" style={{ color: textColor }}>
                   Companies ▾
                 </button>
                 <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
@@ -138,7 +138,7 @@ export default function CompanyLayout({ children, company, showFloating = true }
               </div>
               <Link
                 to="#contact"
-                className="px-6 py-2 rounded-full font-cursive font-semibold hover:opacity-90 transition-opacity shadow-lg touch-target"
+                className="px-4 xl:px-6 py-1.5 xl:py-2 rounded-full font-cursive font-semibold hover:opacity-90 transition-opacity shadow-lg touch-target text-sm xl:text-base"
                 style={{ 
                   backgroundColor: company?.accent || '#C9A227', 
                   color: company?.color || '#0B3D2E' 
@@ -150,11 +150,11 @@ export default function CompanyLayout({ children, company, showFloating = true }
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 touch-target"
+              className="lg:hidden p-1.5 sm:p-2 touch-target z-50"
               style={{ color: textColor }}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -166,10 +166,10 @@ export default function CompanyLayout({ children, company, showFloating = true }
               animate={{ opacity: 1, scaleY: 1 }}
               exit={{ opacity: 0, scaleY: 0 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="md:hidden overflow-hidden origin-top"
+              className="lg:hidden overflow-y-auto origin-top fixed inset-0 top-[60px] z-[90]"
               style={{ backgroundColor: company?.color || '#0B3D2E' }}
             >
-              <div className="px-4 py-5 space-y-1">
+              <div className="px-4 pt-4 pb-8 h-full space-y-1">
                 <Link
                   to="/"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -248,24 +248,12 @@ export default function CompanyLayout({ children, company, showFloating = true }
             </div>
           </div>
           <div className="border-t border-white/10 mt-8 pt-6 text-center">
-            <p className="text-white/50 text-sm">© {new Date().getFullYear()} TaaSa Business Group. All rights reserved.</p>
+            <p className="text-white/50 text-sm text-center">© {new Date().getFullYear()} TaaSa Business Group. All rights reserved.</p>
           </div>
         </div>
       </footer>
 
-      {!isLoading && (
-        <a
-          href={`https://wa.me/${company?.whatsapp?.replace(/\s/g, '') || '94720516432'}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
-          style={{ backgroundColor: '#25D366' }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-        </a>
-      )}
+      {!isLoading && <WhatsAppButton />}
     </>
   )
 }

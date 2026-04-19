@@ -168,8 +168,8 @@ export default function Contact({ colors = DEFAULT_COLORS }) {
                     whileHover={{ y: -5 }}
                     className="col-span-1 sm:col-span-2 flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-green-100/50 rounded-2xl border border-green-200"
                   >
-                    <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="text-green-600" size={28} />
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accent}20` }}>
+                      <Clock style={{ color: primary }} size={28} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-1">
@@ -192,8 +192,8 @@ export default function Contact({ colors = DEFAULT_COLORS }) {
                     whileHover={{ y: -5 }}
                     className="flex items-start gap-4 p-4 bg-light-beige rounded-2xl"
                   >
-                    <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Building2 className="text-accent" size={28} />
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accent}20` }}>
+                      <Building2 style={{ color: primary }} size={28} />
                     </div>
                     <div>
                       <h4 className="font-cursive font-bold text-lg mb-1" style={{ color: primary }}>Office Address</h4>
@@ -208,11 +208,11 @@ export default function Contact({ colors = DEFAULT_COLORS }) {
                     whileHover={{ y: -5 }}
                     className="flex items-start gap-4 p-4 bg-light-beige rounded-2xl"
                   >
-                    <div className="w-14 h-14 bg-olive-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Factory className="text-olive-green" size={28} />
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accent}20` }}>
+                      <Factory style={{ color: primary }} size={28} />
                     </div>
                     <div>
-                      <h4 className="font-cursive font-bold primary text-lg mb-1">Production Plant</h4>
+                      <h4 className="font-cursive font-bold text-lg mb-1" style={{ color: primary }}>Production Plant</h4>
                       <p className="text-gray-600 font-nunito text-sm leading-relaxed">
                         {COMPANY_INFO.plantAddress}
                       </p>
@@ -223,12 +223,12 @@ export default function Contact({ colors = DEFAULT_COLORS }) {
                     whileHover={{ y: -5 }}
                     className="flex items-start gap-4 p-4 bg-light-beige rounded-2xl"
                   >
-                    <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Phone className="text-accent" size={28} />
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accent}20` }}>
+                      <Phone style={{ color: primary }} size={28} />
                     </div>
                     <div>
-                      <h4 className="font-cursive font-bold primary text-lg mb-1">Phone</h4>
-                      <a href="tel:+94672222540" className="text-gray-600 font-nunito text-sm hover:text-accent transition-colors block">
+                      <h4 className="font-cursive font-bold text-lg mb-1" style={{ color: primary }}>Phone</h4>
+                      <a href="tel:+94672222540" className="text-gray-600 font-nunito text-sm hover:opacity-70 transition-colors block">
                         0672 222 540
                       </a>
                     </div>
@@ -238,12 +238,12 @@ export default function Contact({ colors = DEFAULT_COLORS }) {
                     whileHover={{ y: -5 }}
                     className="flex items-start gap-4 p-4 bg-light-beige rounded-2xl"
                   >
-                    <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Mail className="text-accent" size={28} />
+                    <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accent}20` }}>
+                      <Mail style={{ color: primary }} size={28} />
                     </div>
                     <div>
-                      <h4 className="font-cursive font-bold primary text-lg mb-1">Email</h4>
-                      <a href="mailto:taasarice@gmail.com" className="text-gray-600 font-nunito text-sm hover:text-accent transition-colors block">
+                      <h4 className="font-cursive font-bold text-lg mb-1" style={{ color: primary }}>Email</h4>
+                      <a href="mailto:taasarice@gmail.com" className="text-gray-600 font-nunito text-sm hover:opacity-70 transition-colors block">
                         taasarice@gmail.com
                       </a>
                     </div>

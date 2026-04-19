@@ -114,7 +114,7 @@ function FeatureCard({ feature, index }) {
       whileHover={{ y: -5 }}
       className="relative group cursor-pointer"
     >
-      <div className="relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
+      <div className="relative h-[350px] sm:h-[380px] md:h-[400px] lg:h-[450px] rounded-3xl overflow-hidden shadow-2xl">
         <img
           src={feature.image}
           alt={feature.title}

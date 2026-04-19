@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { Facebook, MapPin, Phone, Mail, ArrowUp, Clock, Globe } from 'lucide-react'
 import WheatIcon from '../ui/WheatIcon'
 import { WaveGradient } from '../ui/WaveDivider'
@@ -6,7 +7,8 @@ import Logo from '/assets/img/logos/TaaSa.svg'
 import { COMPANY_INFO, whatsappLink } from '../../lib/constants'
 
 const quickLinks = [
-  { name: 'Home', href: '#home' },
+  { name: 'Home', href: '/' },
+  { name: 'All Companies', href: '/#companies' },
   { name: 'About Us', href: '#about' },
   { name: 'Products', href: '#products' },
   { name: 'Gallery', href: '#gallery' },
@@ -108,10 +110,17 @@ export default function Footer() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 * i + 0.2 }}
                 >
-                  <a href={link.href} className="text-white/70 hover:text-accent-gold transition-colors font-nunito flex items-center gap-2 group text-sm">
-                    <span className="w-0 group-hover:w-4 h-0.5 bg-accent-gold transition-all duration-300" />
-                    {link.name}
-                  </a>
+                  {link.href === '/' ? (
+                    <Link to="/" className="text-white/70 hover:text-accent-gold transition-colors font-nunito flex items-center gap-2 group text-sm">
+                      <span className="w-0 group-hover:w-4 h-0.5 bg-accent-gold transition-all duration-300" />
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="text-white/70 hover:text-accent-gold transition-colors font-nunito flex items-center gap-2 group text-sm">
+                      <span className="w-0 group-hover:w-4 h-0.5 bg-accent-gold transition-all duration-300" />
+                      {link.name}
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>

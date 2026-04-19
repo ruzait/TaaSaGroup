@@ -45,8 +45,8 @@ function ProductCard({ product, index }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className="flex flex-col lg:flex-row rounded-2xl overflow-hidden shadow-xl bg-deep-green">
-        <div className={`relative w-full lg:w-1/2 min-h-[200px] md:min-h-[280px] overflow-hidden ${
+      <div className="flex flex-col lg:flex-row rounded-2xl overflow-hidden shadow-xl bg-deep-green w-full">
+        <div className={`relative w-full lg:w-1/2 min-h-[180px] sm:min-h-[220px] md:min-h-[280px] overflow-hidden ${
           isFirst ? 'lg:order-1' : 'lg:order-2'
         }`}>
           <img

@@ -108,7 +108,7 @@ export default function Gallery() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
               className={`relative overflow-hidden rounded-2xl cursor-pointer group ${
-                index === 0 ? 'col-span-2 sm:col-span-1 md:col-span-2 sm:row-span-1 md:row-span-2' : ''
+                index === 0 ? 'col-span-2 sm:col-span-1 md:col-span-2 lg:row-span-2' : ''
               }`}
               onClick={() => openLightbox(index)}
               role="button"
@@ -124,7 +124,7 @@ export default function Gallery() {
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 min-h-[200px]"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 min-h-[150px] sm:min-h-[200px]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-deep-green/0 group-hover:bg-deep-green/30 transition-colors duration-300 flex items-center justify-center">
