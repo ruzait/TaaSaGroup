@@ -89,11 +89,8 @@ function Navbar({ company }) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'backdrop-blur-md shadow-2xl py-2' : 'py-3'}`}
-      style={{ 
-        backgroundColor: isScrolled ? `${COLORS.color}F2` : COLORS.color,
-        backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-      }}
+      className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 py-3"
+      style={{ backgroundColor: COLORS.color }}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between">

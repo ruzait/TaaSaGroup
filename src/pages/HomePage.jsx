@@ -17,7 +17,7 @@ function Navbar() {
   useEffect(() => { const handleScroll = () => setIsScrolled(window.scrollY > 50); window.addEventListener('scroll', handleScroll, { passive: true }); return () => window.removeEventListener('scroll', handleScroll) }, [])
   useEffect(() => { if (isMobileMenuOpen) { document.body.style.overflow = 'hidden' } else { document.body.style.overflow = '' }; return () => { document.body.style.overflow = '' } }, [isMobileMenuOpen])
   return (
-    <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'backdrop-blur-md shadow-2xl py-2' : 'py-3'}`} style={{ backgroundColor: isScrolled ? `${COLORS.color}F2` : COLORS.color }}>
+    <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 py-3`} style={{ backgroundColor: isScrolled ? COLORS.color : COLORS.color }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2"><img src={Logo} alt="TaaSa" className="w-12 h-10 bg-white/90 rounded-lg p-0.5" /><span className="font-cursive font-bold text-lg sm:text-2xl hidden sm:block text-white">TaaSa Business Group</span></Link>

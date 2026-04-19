@@ -118,11 +118,7 @@ function Navbar({ company }) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        isScrolled
-          ? 'bg-deep-green/95 backdrop-blur-md shadow-2xl py-2'
-          : 'bg-deep-green py-3'
-      }`}
+      className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 bg-deep-green py-3"
       role="navigation"
       aria-label="Main navigation"
     >
