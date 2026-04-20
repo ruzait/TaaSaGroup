@@ -19,8 +19,10 @@ import LoadingScreen from '../components/ui/LoadingScreen'
 import WhatsAppButton from '../components/ui/WhatsAppButton'
 import Logo from '/assets/img/logos/TaaSa.svg'
 import { COMPANIES } from '../lib/constants'
+import SEO from '../components/ui/SEO'
 
 export default function RicePage() {
+  SEO({ page: 'taasa-rice' })
   const [isLoading, setIsLoading] = useState(true)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
@@ -72,7 +74,7 @@ export default function RicePage() {
           <Contact />
         </main>
         <Footer company={company} />
-        <WhatsAppButton />
+        <WhatsAppButton page="taasa-rice" />
       </div>
     </>
   )
@@ -128,7 +130,7 @@ function Navbar({ company }) {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-10 sm:w-16 sm:h-12 rounded-xl overflow-hidden p-0.5 sm:p-1 bg-white/90"
+              className="w-14 h-12 sm:w-16 sm:h-12 rounded-xl overflow-hidden p-0.5 sm:p-1 bg-white/90"
             >
               <img 
                 src={Logo} 
@@ -159,7 +161,7 @@ function Navbar({ company }) {
                 Our Companies ▾
               </button>
               <div className="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <div className="bg-deep-green/95 backdrop-blur-lg rounded-xl shadow-2xl py-2 w-40">
+                <div className="bg-deep-green/95 backdrop-blur-lg rounded-xl shadow-2xl py-2 w-56">
                   <Link to="/" className="block font-nunito text-white py-2 px-4 hover:text-accent-gold">TaaSa Home</Link>
                   {COMPANIES.slice(1).map((c) => (
                     <Link key={c.id} to={`/company/${c.id}`} className="block font-nunito text-white py-2 px-4 hover:text-accent-gold">{c.shortName}</Link>
@@ -269,7 +271,7 @@ function Footer({ company }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={Logo} alt="TaaSa" className="w-12 h-12 bg-white/10 rounded-lg p-1" />
+              <img src={Logo} alt="TaaSa" className="w-12 h-12 bg-white/10 rounded-lg p-1" style={{ filter: 'brightness(0) invert(1)' }} />
               <div>
                 <h3 className="font-cursive font-bold text-xl text-white">TaaSa Business Group</h3>
                 <p className="text-white/60 text-sm">Umbrella of 5 Companies</p>

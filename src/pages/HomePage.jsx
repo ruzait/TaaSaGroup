@@ -8,6 +8,7 @@ import LoadingScreen from '../components/ui/LoadingScreen'
 import Contact from '../components/sections/Contact'
 import { WaveGradient } from '../components/ui/WaveDivider'
 import WhatsAppButton from '../components/ui/WhatsAppButton'
+import SEO from '../components/ui/SEO'
 
 const COLORS = { color: '#0f172a', accent: '#C9A227', bg: '#F5F5DC' }
 
@@ -20,7 +21,9 @@ function Navbar() {
     <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 py-3`} style={{ backgroundColor: isScrolled ? COLORS.color : COLORS.color }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2"><img src={Logo} alt="TaaSa" className="w-12 h-10 bg-white/90 rounded-lg p-0.5" /><span className="font-cursive font-bold text-lg sm:text-2xl hidden sm:block text-white">TaaSa Business Group</span></Link>
+          <Link to="/" className="flex items-center gap-2"><motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-14 h-12 rounded-xl overflow-hidden p-0.5 bg-white/90">
+                <img src={Logo} alt="TaaSa" className="w-full h-full object-contain rounded-lg" />
+              </motion.div><span className="font-cursive font-bold text-lg sm:text-2xl hidden sm:block text-white">TaaSa Business Group</span></Link>
           <div className="hidden lg:flex items-center gap-5 xl:gap-6">
             <Link to="#home" className="font-cursive text-white text-sm xl:text-base hover:text-accent transition-colors">Home</Link>
             <Link to="#companies" className="font-cursive text-white text-sm xl:text-base hover:text-accent transition-colors">Companies</Link>
@@ -30,7 +33,7 @@ function Navbar() {
                 Our Companies ▾
               </button>
               <div className="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <div className="rounded-xl shadow-2xl overflow-hidden backdrop-blur-lg py-2 w-40" style={{ backgroundColor: COLORS.color }}>
+                <div className="rounded-xl shadow-2xl overflow-hidden backdrop-blur-lg py-2 w-56" style={{ backgroundColor: COLORS.color }}>
                   <Link to="/" className="block font-nunito text-white py-2 px-4 hover:text-accent transition-colors">TaaSa Home</Link>
                   {COMPANIES.map((c) => (
                     <Link key={c.id} to={`/company/${c.id}`} className="block font-nunito text-white py-2 px-4 hover:text-accent transition-colors">{c.shortName}</Link>
@@ -76,7 +79,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={Logo} alt="TaaSa" className="w-12 h-12 bg-white/10 rounded-lg p-1" />
+              <img src={Logo} alt="TaaSa" className="w-12 h-12 bg-white/10 rounded-lg p-1" style={{ filter: 'brightness(0) invert(1)' }} />
               <div>
                 <h3 className="font-cursive font-bold text-xl text-white">TaaSa Business Group</h3>
                 <p className="text-white/60 text-sm">Umbrella of 5 Companies</p>
@@ -123,8 +126,8 @@ function Footer() {
 const COMPANY_IMAGES = {
   'taasa-rice': '/assets/img/pageimgs/TaasaRice.png',
   'taasa-trading': '/assets/img/pageimgs/GlobalTrading.png',
-  'taasa-packaging': '/assets/img/pageimgs/packaging.png',
-  'guest-inn': '/assets/img/pageimgs/GuestInn.png',
+  'taasa-packaging': '/assets/img/pageimgs/Packaging.png',
+  'taasa-guestinn': '/assets/img/pageimgs/GuestInn.png',
   'taasa-resort': '/assets/img/pageimgs/TaaSaResort.png',
 }
 
@@ -145,6 +148,7 @@ const sectorGradients = {
 }
 
 export default function HomePage() {
+  SEO({ page: 'home' })
   const [isLoading, setIsLoading] = useState(true)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
@@ -204,14 +208,10 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <div className="inline-flex items-center gap-3 mb-6">
-              <img src={Logo} alt="TaaSa" className="w-20 h-20" />
-              <div className="w-px h-16 bg-white/30" />
-              <span className="font-cursive font-bold text-white text-4xl sm:text-5xl">TaaSa</span>
+            <div className="flex flex-col items-center mb-6">
+              <img src={Logo} alt="TaaSa" className="w-48 h-36" style={{ filter: 'brightness(0) invert(1)' }} />
+              <span className="font-cursive font-bold text-white text-4xl sm:text-5xl">TaaSa Business Group</span>
             </div>
-            <h1 className="font-cursive font-bold text-white text-responsive-hero mb-4" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
-              Business Group
-            </h1>
             <p className="font-nunito text-white/80 text-lg sm:text-xl max-w-2xl mx-auto">
               One Umbrella, Five Specialized Companies
             </p>
@@ -381,16 +381,16 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+              <div className="aspect-[2/2] rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/assets/img/pageimgs/MD_thahir.jpeg" 
+                  src="/assets/img/pageimgs/Thaahir_HomePage.jpeg" 
                   alt="TaaSa Leadership" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 p-6 rounded-2xl bg-white shadow-2xl">
                 <p className="font-cursive font-bold text-xl" style={{ color: '#0f172a' }}>Leading Excellence</p>
-                <p className="font-nunito text-gray-600 text-sm">Since 2014</p>
+                <p className="font-nunito text-gray-600 text-sm">Since 2017</p>
               </div>
             </motion.div>
             <motion.div
@@ -410,7 +410,7 @@ export default function HomePage() {
               </p>
               <div className="p-6 rounded-2xl bg-white shadow-lg border-l-4" style={{ borderColor: '#C9A227' }}>
                 <p className="font-nunito text-gray-500 text-sm mb-1">Managing Director</p>
-                <h3 className="font-cursive font-bold text-2xl" style={{ color: '#0f172a' }}>Sathakku Lebbe Mohamed Thahir</h3>
+                <h3 className="font-cursive font-bold text-2xl" style={{ color: '#0f172a' }}>SL. Mohamed Thahir</h3>
                 <p className="font-nunito text-gray-600 text-sm mt-2">Founder & Visionary Leader</p>
               </div>
             </motion.div>
@@ -543,7 +543,7 @@ export default function HomePage() {
       <Contact colors={{ bg: COLORS.bg, primary: COLORS.color, accent: COLORS.accent }} />
       
       <Footer />
-      <WhatsAppButton company={{ phone: '+94 67 222 2540', whatsapp: '+94 72 051 6432', defaultMessage: 'Hello TaaSa Business Group' }} />
+      <WhatsAppButton page="home" />
     </>
   )
 }

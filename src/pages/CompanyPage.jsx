@@ -7,6 +7,7 @@ import { WaveGradient } from '../components/ui/WaveDivider'
 import CompanyPageLayout from '../components/layout/CompanyPageLayout'
 import Contact from '../components/sections/Contact'
 import LoadingScreen from '../components/ui/LoadingScreen'
+import SEO from '../components/ui/SEO'
 
 export default function CompanyPage() {
   const { companyId } = useParams()
@@ -67,6 +68,7 @@ export default function CompanyPage() {
 
   return (
     <>
+      {company && <SEO page={company.id} />}
       {isLoading && <LoadingScreen 
         title={company?.shortName || 'TaaSa Business Group'}
         subtitle={company?.tagline || 'Loading...'}

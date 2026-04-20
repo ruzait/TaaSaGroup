@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion'
-import { whatsappLink } from '../../lib/constants'
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/constants'
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ page = 'home' }) {
+  const message = WHATSAPP_MESSAGES[page] || WHATSAPP_MESSAGES.home
+  const waLink = whatsappLink(page)
+
   return (
     <motion.a
-      href={whatsappLink()}
+      href={waLink}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0 }}

@@ -10,7 +10,7 @@ export const COMPANIES = [
   {
     id: 'taasa-rice',
     name: 'TaaSa Rice Processing Company',
-    shortName: 'TaaSa Rice',
+    shortName: 'TaaSa Rice Processing',
     tagline: 'Premium Quality Rice Producer & Exporter',
     description: 'Leading White Raw Rice IRR64 Producer, Importer and Exporter delivering premium-quality rice to local and international markets.',
     sector: 'Agriculture',
@@ -46,7 +46,7 @@ export const COMPANIES = [
   {
     id: 'taasa-packaging',
     name: 'TaaSa Packaging Industries',
-    shortName: 'TaaSa Packaging',
+    shortName: 'TaaSa Packaging Industries',
     tagline: 'Innovative Packaging Solutions',
     description: 'Quality packaging solutions for food, retail, and industrial sectors with sustainable materials.',
     sector: 'Manufacturing',
@@ -110,12 +110,20 @@ export const COMPANY_INFO = {
   email: 'taasarice@gmail.com',
   officeAddress: 'No.446, Sri Vajiragnana Mawatha, Dematagoda Road, Colombo - 09',
   plantAddress: 'No. 381/3021, Intersection of Chavalakada, Navithanveli - 32308',
-  facebook: 'https://web.facebook.com/p/TaaSa-Rice-Processing-Company-Private-Limited-100063943992981',
-  defaultMessage: 'Hello TaaSa Rice Processing Company, I would like to inquire about your products.'
+  facebook: 'https://web.facebook.com/p/TaaSa-Rice-Processing-Company-Private-Limited-100063943992981'
 }
 
-export const whatsappLink = (message = COMPANY_INFO.defaultMessage) => 
-  `https://wa.me/${COMPANY_INFO.whatsappClean}?text=${encodeURIComponent(message)}`
+export const WHATSAPP_MESSAGES = {
+  home: 'Hello TaaSa Business Group, I would like to inquire about your companies and services.',
+  'taasa-rice': 'Hello TaaSa Rice Processing, I am interested in your premium quality rice products. Could you please share your product catalog and pricing?',
+  'taasa-trading': 'Hello TaaSa Trading, I need assistance with international trade and import/export services. Can you please provide more information?',
+  'taasa-packaging': 'Hello TaaSa Packaging Industries, I am looking for packaging solutions. Could you please share your product range and quotes?',
+  'taasa-guestinn': 'Hello TaaSa Guest Inn, I would like to book a stay. What accommodations do you have available and what are the rates?',
+  'taasa-resort': 'Hello TaaSa Resort, I am interested in your luxury resort. What packages do you offer and what are the booking details?'
+}
+
+export const whatsappLink = (page = 'home', message = WHATSAPP_MESSAGES[page]) => 
+  `https://wa.me/${COMPANY_INFO.whatsappClean}?text=${encodeURIComponent(message || WHATSAPP_MESSAGES.home)}`
 
 export const NAV_LINKS = [
   { name: 'Home', href: '#home' },

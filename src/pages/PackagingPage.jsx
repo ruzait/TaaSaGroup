@@ -8,10 +8,12 @@ import Logo from '/assets/img/logos/TaaSa.svg'
 import LoadingScreen from '../components/ui/LoadingScreen'
 import UnderDevelopmentBanner from '../components/ui/UnderDevelopmentBanner'
 import { COMPANIES } from '../lib/constants'
+import SEO from '../components/ui/SEO'
 
 const COLORS = { color: COMPANIES[2].color, accent: COMPANIES[2].accent, bg: '#F5F5DC' }
 
 export default function PackagingPage() {
+  SEO({ page: 'taasa-packaging' })
   const company = COMPANIES[2]
   const [isLoading, setIsLoading] = useState(true)
   const [imagesLoaded, setImagesLoaded] = useState(false)
@@ -40,7 +42,7 @@ export default function PackagingPage() {
       <Hero />
       <UnderDevelopmentBanner company={company} />
       <Footer company={company} />
-      <WhatsAppButton />
+      <WhatsAppButton page="taasa-packaging" />
     </>
   )
 }
@@ -54,7 +56,12 @@ function Navbar({ company }) {
     <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 py-3" style={{ backgroundColor: COLORS.color }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2"><img src={Logo} alt="TaaSa" className="w-12 h-10 bg-white/90 rounded-lg p-0.5" /><span className="font-cursive font-bold text-lg sm:text-2xl hidden sm:block text-white">{company.shortName}</span></Link>
+          <Link to="/" className="flex items-center gap-2">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-14 h-12 rounded-xl overflow-hidden p-0.5 bg-white/90">
+              <img src={Logo} alt="TaaSa" className="w-full h-full object-contain rounded-lg" />
+            </motion.div>
+            <span className="font-cursive font-bold text-lg sm:text-2xl hidden sm:block text-white">{company.shortName}</span>
+          </Link>
           <div className="hidden lg:flex items-center gap-5 xl:gap-6">
             <Link to="#about" className="font-cursive text-white text-sm xl:text-base hover:text-accent transition-colors">About</Link>
             <Link to="#products" className="font-cursive text-white text-sm xl:text-base hover:text-accent transition-colors">Products</Link>
@@ -63,7 +70,7 @@ function Navbar({ company }) {
                 Our Companies ▾
               </button>
               <div className="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <div className="rounded-xl shadow-2xl overflow-hidden backdrop-blur-lg py-2 w-40" style={{ backgroundColor: COLORS.color }}>
+                <div className="rounded-xl shadow-2xl overflow-hidden backdrop-blur-lg py-2 w-56" style={{ backgroundColor: COLORS.color }}>
                   <Link
                     to="/"
                     className="block font-nunito text-white py-2 px-4 hover:text-accent transition-colors"
@@ -112,7 +119,7 @@ function Navbar({ company }) {
 function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/assets/img/pageimgs/packaging.png')" }} />
+      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/assets/img/pageimgs/Packaging.png')" }} />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20">
         <span className="inline-block px-6 py-2 rounded-full text-sm font-semibold mb-6" style={{ backgroundColor: COLORS.accent, color: COLORS.color }}>{COMPANIES[2].sector}</span>
@@ -138,7 +145,7 @@ function Footer({ company }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={Logo} alt="TaaSa" className="w-12 h-12 bg-white/10 rounded-lg p-1" />
+              <img src={Logo} alt="TaaSa" className="w-12 h-12 bg-white/10 rounded-lg p-1" style={{ filter: 'brightness(0) invert(1)' }} />
               <div>
                 <h3 className="font-cursive font-bold text-xl text-white">TaaSa Business Group</h3>
                 <p className="text-white/60 text-sm">Umbrella of 5 Companies</p>

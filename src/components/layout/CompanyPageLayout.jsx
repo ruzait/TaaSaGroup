@@ -49,7 +49,7 @@ export default function CompanyPageLayout({ children, company }) {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-12 h-10 sm:w-16 sm:h-12 rounded-xl overflow-hidden p-0.5 sm:p-1 bg-white/90"
+                className="w-14 h-12 sm:w-16 sm:h-12 rounded-xl overflow-hidden p-0.5 sm:p-1 bg-white/90"
               >
                 <img 
                   src={Logo} 
@@ -221,7 +221,7 @@ export default function CompanyPageLayout({ children, company }) {
         </div>
       </footer>
 
-      {company && <WhatsAppButton />}
+      {company && <WhatsAppButton page={company.id} />}
     </>
   )
 }

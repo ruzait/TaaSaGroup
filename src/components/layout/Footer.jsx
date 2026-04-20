@@ -66,7 +66,7 @@ export default function Footer() {
                 transition={{ duration: 0.5 }}
                 className="w-28 h-16 sm:w-32 sm:h-18 rounded-2xl backdrop-blur-sm p-2 flex items-center justify-center" style={{ boxShadow: '0 -4px 10px rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.4)' }}
               >
-                <img src={Logo} alt="TaaSa Rice Processing Company" className="w-full h-full object-contain" style={{ filter: 'drop-shadow(0 -4px 6px rgba(0,0,0,0.3)) drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }} />
+                <img src={Logo} alt="TaaSa Rice Processing Company" className="w-full h-full object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
               </motion.div>
               <div className="flex flex-col justify-center md:justify-start text-center md:text-left">
                 <span className="font-cursive font-bold text-3xl sm:text-4xl text-white">TaaSa Rice</span>
