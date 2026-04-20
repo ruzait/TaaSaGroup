@@ -116,7 +116,7 @@ function Navbar({ company }) {
                   {COMPANIES.filter(c => c.id !== company.id).map((c) => (
                     <Link
                       key={c.id}
-                      to={`/company/${c.id}`}
+                      to={`/${c.id}`}
                       className="block font-nunito text-white py-2 px-4 hover:text-accent transition-colors"
                     >
                       {c.shortName}
@@ -150,7 +150,7 @@ function Navbar({ company }) {
               <span className="block font-cursive font-medium py-2 text-white/60 text-sm">Our Companies</span>
               <Link to="/" className="block font-nunito text-white py-2 pl-4 hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>TaaSa Home</Link>
               {COMPANIES.filter(c => c.id !== company.id).map((c) => (
-                <Link key={c.id} to={`/company/${c.id}`} className="block font-nunito text-white py-2 pl-4 hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>{c.shortName}</Link>
+                <Link key={c.id} to={`/${c.id}`} className="block font-nunito text-white py-2 pl-4 hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>{c.shortName}</Link>
               ))}
             </div>
             <Link to="#contact" className="block font-cursive font-semibold text-center mt-4 py-3 rounded-full" style={{ backgroundColor: COLORS.accent, color: COLORS.color }} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
@@ -205,7 +205,7 @@ function Footer({ company }) {
             <ul className="space-y-2">
               <li><Link to="/" className="text-white/70 hover:text-accent text-sm">TaaSa Home</Link></li>
               {COMPANIES.filter(c => c.id !== company.id).map((c) => (
-                <li key={c.id}><Link to={`/company/${c.id}`} className="text-white/70 hover:text-accent text-sm">{c.shortName}</Link></li>
+                <li key={c.id}><Link to={`/${c.id}`} className="text-white/70 hover:text-accent text-sm">{c.shortName}</Link></li>
               ))}
             </ul>
           </div>

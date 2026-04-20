@@ -127,7 +127,7 @@ export default function CompanyLayout({ children, company, showFloating = true }
                     {COMPANIES.map((c) => (
                       <Link
                         key={c.id}
-                        to={`/company/${c.id}`}
+                        to={`/${c.id}`}
                         className="block px-4 py-2 hover:opacity-80 transition-opacity whitespace-nowrap font-nunito text-sm text-white"
                       >
                         {c.shortName}
@@ -183,7 +183,7 @@ export default function CompanyLayout({ children, company, showFloating = true }
                   {COMPANIES.map((c) => (
                     <Link
                       key={c.id}
-                      to={`/company/${c.id}`}
+                      to={`/${c.id}`}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="block font-nunito py-2 pl-4 hover:opacity-80"
                       style={{ color: textColor }}
@@ -233,7 +233,7 @@ export default function CompanyLayout({ children, company, showFloating = true }
               <ul className="space-y-2">
                 {COMPANIES.map((c) => (
                   <li key={c.id}>
-                    <Link to={`/company/${c.id}`} className="text-white/70 hover:text-white text-sm">
+                    <Link to={`/${c.id}`} className="text-white/70 hover:text-white text-sm">
                       {c.shortName}
                     </Link>
                   </li>

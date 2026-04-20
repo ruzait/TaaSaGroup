@@ -36,7 +36,7 @@ function Navbar() {
                 <div className="rounded-xl shadow-2xl overflow-hidden backdrop-blur-lg py-2 w-56" style={{ backgroundColor: COLORS.color }}>
                   <Link to="/" className="block font-nunito text-white py-2 px-4 hover:text-accent transition-colors">TaaSa Home</Link>
                   {COMPANIES.map((c) => (
-                    <Link key={c.id} to={`/company/${c.id}`} className="block font-nunito text-white py-2 px-4 hover:text-accent transition-colors">{c.shortName}</Link>
+                    <Link key={c.id} to={`/${c.id}`} className="block font-nunito text-white py-2 px-4 hover:text-accent transition-colors">{c.shortName}</Link>
                   ))}
                 </div>
               </div>
@@ -58,7 +58,7 @@ function Navbar() {
               <span className="block font-cursive font-medium py-2 text-white/60 text-sm">Our Companies</span>
               <Link to="/" className="block font-nunito text-white py-2 pl-4 hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>TaaSa Home</Link>
               {COMPANIES.map((c) => (
-                <Link key={c.id} to={`/company/${c.id}`} className="block font-nunito text-white py-2 pl-4 hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>{c.shortName}</Link>
+                <Link key={c.id} to={`/${c.id}`} className="block font-nunito text-white py-2 pl-4 hover:text-accent" onClick={() => setIsMobileMenuOpen(false)}>{c.shortName}</Link>
               ))}
             </div>
             <Link to="#contact" className="block font-cursive font-semibold text-center mt-4 py-3 rounded-full" style={{ backgroundColor: COLORS.accent, color: COLORS.color }} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
@@ -92,7 +92,7 @@ function Footer() {
             <ul className="space-y-2">
               {COMPANIES.map((c) => (
                 <li key={c.id}>
-                  <Link to={`/company/${c.id}`} className="text-white/70 hover:text-white text-sm transition-colors">
+                  <Link to={`/${c.id}`} className="text-white/70 hover:text-white text-sm transition-colors">
                     {c.shortName}
                   </Link>
                 </li>
@@ -322,7 +322,7 @@ export default function HomePage() {
                         </p>
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                           <Link
-                            to={`/company/${company.id}`}
+                            to={`/${company.id}`}
                             className="flex items-center justify-center gap-2 px-6 py-3 rounded-full font-cursive font-semibold text-base transition-all w-full"
                             style={{ backgroundColor: company.accent, color: company.color }}
                           >
@@ -480,7 +480,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {COMPANIES.map((company, index) => (
-              <Link key={company.id} to={`/company/${company.id}`}>
+              <Link key={company.id} to={`/${company.id}`}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}

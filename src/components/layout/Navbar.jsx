@@ -150,7 +150,7 @@ export default function Navbar() {
                 <span className="block font-cursive font-medium py-2 text-white/60 text-sm">All Companies</span>
                 <Link to="/" className="block font-nunito text-white py-2 pl-4 hover:text-accent-gold" onClick={handleNavClick}>TaaSa Home</Link>
                 {COMPANIES.map((c) => (
-                  <Link key={c.id} to={`/company/${c.id}`} className="block font-nunito text-white py-2 pl-4 hover:text-accent-gold" onClick={handleNavClick}>{c.shortName}</Link>
+                  <Link key={c.id} to={`/${c.id}`} className="block font-nunito text-white py-2 pl-4 hover:text-accent-gold" onClick={handleNavClick}>{c.shortName}</Link>
                 ))}
               </div>
               <motion.a

@@ -164,7 +164,7 @@ function Navbar({ company }) {
                 <div className="bg-deep-green/95 backdrop-blur-lg rounded-xl shadow-2xl py-2 w-56">
                   <Link to="/" className="block font-nunito text-white py-2 px-4 hover:text-accent-gold">TaaSa Home</Link>
                   {COMPANIES.slice(1).map((c) => (
-                    <Link key={c.id} to={`/company/${c.id}`} className="block font-nunito text-white py-2 px-4 hover:text-accent-gold">{c.shortName}</Link>
+                    <Link key={c.id} to={`/${c.id}`} className="block font-nunito text-white py-2 px-4 hover:text-accent-gold">{c.shortName}</Link>
                   ))}
                 </div>
               </div>
@@ -234,7 +234,7 @@ function Navbar({ company }) {
                 {COMPANIES.slice(1).map((c) => (
                   <Link
                     key={c.id}
-                    to={`/company/${c.id}`}
+                    to={`/${c.id}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-nunito text-white py-2 pl-4 hover:text-accent-gold"
                   >
@@ -283,7 +283,7 @@ function Footer({ company }) {
             <h4 className="font-handlee font-bold text-lg text-white mb-4">Our Companies</h4>
             <ul className="space-y-2">
               <li><Link to="/" className="text-white/70 hover:text-accent-gold text-sm">TaaSa Home</Link></li>
-              {COMPANIES.slice(1).map((c) => (<li key={c.id}><Link to={`/company/${c.id}`} className="text-white/70 hover:text-accent-gold text-sm">{c.shortName}</Link></li>))}
+              {COMPANIES.slice(1).map((c) => (<li key={c.id}><Link to={`/${c.id}`} className="text-white/70 hover:text-accent-gold text-sm">{c.shortName}</Link></li>))}
             </ul>
           </div>
           <div>

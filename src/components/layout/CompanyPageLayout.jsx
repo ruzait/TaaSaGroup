@@ -76,7 +76,7 @@ export default function CompanyPageLayout({ children, company }) {
                     {COMPANIES.map((c) => (
                       <Link
                         key={c.id}
-                        to={`/company/${c.id}`}
+                        to={`/${c.id}`}
                         className="block px-4 py-2 hover:bg-white/10 transition-colors whitespace-nowrap font-nunito text-sm flex items-center gap-2"
                         style={{ 
                           color: company?.id === c.id ? 'white' : 'rgba(255,255,255,0.8)',
@@ -146,7 +146,7 @@ export default function CompanyPageLayout({ children, company }) {
                 {COMPANIES.map((c) => (
                   <Link
                     key={c.id}
-                    to={`/company/${c.id}`}
+                    to={`/${c.id}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-nunito py-2 pl-4 hover:opacity-80 flex items-center gap-2"
                     style={{ 
@@ -201,7 +201,7 @@ export default function CompanyPageLayout({ children, company }) {
               <ul className="space-y-2">
                 {COMPANIES.map((c) => (
                   <li key={c.id}>
-                    <Link to={`/company/${c.id}`} className="text-white/70 hover:text-white text-sm">
+                    <Link to={`/${c.id}`} className="text-white/70 hover:text-white text-sm">
                       {c.shortName}
                     </Link>
                   </li>

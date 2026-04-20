@@ -23,11 +23,11 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/company/taasa-rice" element={<RicePage />} />
-        <Route path="/company/taasa-trading" element={<TradingPage />} />
-        <Route path="/company/taasa-packaging" element={<PackagingPage />} />
-        <Route path="/company/taasa-guestinn" element={<GuestInnPage />} />
-        <Route path="/company/taasa-resort" element={<ResortPage />} />
+        <Route path="/taasa-rice" element={<RicePage />} />
+        <Route path="/taasa-trading" element={<TradingPage />} />
+        <Route path="/taasa-packaging" element={<PackagingPage />} />
+        <Route path="/taasa-guestinn" element={<GuestInnPage />} />
+        <Route path="/taasa-resort" element={<ResortPage />} />
       </Routes>
     </BrowserRouter>
   )
