@@ -1,7 +1,7 @@
 # TaaSa Rice Processing Company - Official Website
 
 <p align="center">
-  <img src="/assets/img/logos/TaaSa.jpg" alt="TaaSa Rice Logo" width="200" />
+  [<img src="/assets/img/logos/TaaSa.jpg" alt="TaaSa Rice Logo" width="200" />]
 </p>
 
 ---
